@@ -3,8 +3,8 @@
 parser::parser() {
 
 }
-vector<tok> parser::parse(string s) {
-	vector<tok> res;
+std::vector<tok> parser::parse(std::string s) {
+	std::vector<tok> res;
 	char op[7] = "+-()/*";
 	for (int i = 0; i < s.size(); i++) {
 		if (s[i] >= '0' && s[i] <= '9') {
@@ -23,12 +23,8 @@ vector<tok> parser::parse(string s) {
 			res.push_back(tok::tok(s[i]));
 		}
 		else {
-			cout << "Ошибка ввода!" << endl;
+			throw std::runtime_error("Ошибка ввода!");
 		}
-	}
-	for (tok t : res) {
-		if (t.kind == '8') cout << t.val << " ";
-		else cout << t.kind << " " ;
 	}
 	return res;
 }

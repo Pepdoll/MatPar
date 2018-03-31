@@ -2,8 +2,8 @@
 calc::calc() {
 
 }
-double calc::calcInPol(vector<tok> converted) {
-	stack<tok> stack;
+double calc::calcInPol(std::vector<tok> converted) {
+	std::stack<tok> stack;
 	for (tok t : converted) {
 		if (t.kind == '8') {
 			stack.push(t);
@@ -34,7 +34,7 @@ tok calc::calcNums(tok first, tok second, char operation) {
 		return tok(second.val / first.val);
 	}
 			 else {
-				 throw runtime_error("Деление на 0!");
+				 throw std::runtime_error("Деление на 0!");
 	}
 	}
 }

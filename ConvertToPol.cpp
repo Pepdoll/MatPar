@@ -1,13 +1,12 @@
 #include "tok.h"
 #include "stdafx.h"
 #include "ConvertToPol.h"
-using namespace std;
 convertToPol::convertToPol() {
 
 }
-vector<tok> convertToPol::converterToPol(vector<tok> parsedString) {
-	vector<tok> res;
-	stack<tok> stack;
+std::vector<tok> convertToPol::converterToPol(std::vector<tok> parsedString) {
+	std::vector<tok> res;
+	std::stack<tok> stack;
 	for (tok t : parsedString) {
 		if (t.kind == '8') {
 			res.push_back(t);
@@ -22,7 +21,7 @@ vector<tok> convertToPol::converterToPol(vector<tok> parsedString) {
 					stack.pop();
 				}
 				if (!stack.empty()) stack.pop();
-				else throw runtime_error("Ошибка перевода!");
+				else throw std::runtime_error("Ошибка перевода!");
 			}
 			else if(!stack.empty()){
 				if (stack.top().priority < t.priority) stack.push(t);
@@ -45,12 +44,6 @@ vector<tok> convertToPol::converterToPol(vector<tok> parsedString) {
 			stack.pop();
 		}
 	}
-	cout << " " << endl;
-	for (tok t : res) {
-		if (t.kind == '8') cout << t.val << " ";
-		else cout << t.kind << " ";
-	}
-	cout << " " << endl;
 	return res;
 }
 convertToPol::~convertToPol() {
