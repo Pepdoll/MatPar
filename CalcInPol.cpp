@@ -2,7 +2,7 @@
 calc::calc() {
 
 }
-double calc::calcinpol(vector<tok> converted) {
+double calc::calcInPol(vector<tok> converted) {
 	stack<tok> stack;
 	for (tok t : converted) {
 		if (t.kind == '8') {
@@ -18,19 +18,24 @@ double calc::calcinpol(vector<tok> converted) {
 				t2 = stack.top();
 				stack.pop();
 			}
-			stack.push(calcnums(t1, t2, t.kind));
+			stack.push(calcNums(t1, t2, t.kind));
 		}
 	}
 	if (stack.size() == 1) {
 		return stack.top().val;
 	}
 }
-tok calc::calcnums(tok first, tok second, char operation) {
+tok calc::calcNums(tok first, tok second, char operation) {
 	switch (operation) {
-	case '+':return tok(first.val + second.val);
+	case '+':return tok(second.val + first.val);
 	case '-':return tok(second.val - first.val);
-	case '*':return tok(first.val * second.val);
-	case '/':return tok(second.val / first.val);
+	case '*':return tok(second.val * first.val);
+	case '/':if (first.val != 0) {
+		return tok(second.val / first.val);
+	}
+			 else {
+				 throw runtime_error("Деление на 0!");
+	}
 	}
 }
 calc::~calc() {

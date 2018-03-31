@@ -14,7 +14,7 @@ int main() {
 		cout << "Введите выражение: ";
 		cin >> s;
 		try {
-			cout << "Результат: " << round(calc::calcinpol(ConvertToPol::ConverterToPol(p.parse(s)))*1000)/1000;
+			cout << "Результат: " << round(calc::calcInPol(convertToPol::converterToPol(p.parse(s)))*1000)/1000;
 		}
 		catch(runtime_error e){
 			cout << e.what() << endl;

@@ -5,7 +5,7 @@ using namespace std;
 class calc {
 public:
 	calc();
-	static double calcinpol(vector<tok> converted);
-	static tok calcnums(tok first, tok second, char operation);
+	static double calcInPol(vector<tok> converted);
+	static tok calcNums(tok first, tok second, char operation);
 	~calc();
 };

@@ -2,9 +2,9 @@
 #include "stdafx.h"
 #include "tok.h"
 using namespace std;
-class ConvertToPol {
+class convertToPol {
 public:
-	ConvertToPol();
-	static vector<tok> ConverterToPol(vector<tok> parsedstring);
-	~ConvertToPol();
+	convertToPol();
+	static vector<tok> converterToPol(vector<tok> parsedString);
+	~convertToPol();
 };

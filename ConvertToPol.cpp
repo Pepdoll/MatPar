@@ -2,13 +2,13 @@
 #include "stdafx.h"
 #include "ConvertToPol.h"
 using namespace std;
-ConvertToPol::ConvertToPol() {
+convertToPol::convertToPol() {
 
 }
-vector<tok> ConvertToPol::ConverterToPol(vector<tok> parsedstring) {
+vector<tok> convertToPol::converterToPol(vector<tok> parsedString) {
 	vector<tok> res;
 	stack<tok> stack;
-	for (tok t : parsedstring) {
+	for (tok t : parsedString) {
 		if (t.kind == '8') {
 			res.push_back(t);
 		}
@@ -53,6 +53,6 @@ vector<tok> ConvertToPol::ConverterToPol(vector<tok> parsedstring) {
 	cout << " " << endl;
 	return res;
 }
-ConvertToPol::~ConvertToPol() {
+convertToPol::~convertToPol() {
 
 }
