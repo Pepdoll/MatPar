@@ -23,6 +23,15 @@ tok::tok(char ch) : kind(ch), val(0) {
 tok::tok(double value) : kind('8'), priority(4),val(value) {
 
 }
+char tok::getKind() {
+	return kind;
+}
+int tok::getPriority(){
+	return priority;
+}
+double tok::getVal(){
+	return val;
+}
 tok::tok() : kind('0'), val(0) {
 
 }

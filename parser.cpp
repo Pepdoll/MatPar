@@ -5,7 +5,6 @@ parser::parser() {
 }
 std::vector<tok> parser::parse(std::string s) {
 	std::vector<tok> res;
-	char op[7] = "+-()/*";
 	for (int i = 0; i < s.size(); i++) {
 		if (s[i] >= '0' && s[i] <= '9') {
 			int index = 0;

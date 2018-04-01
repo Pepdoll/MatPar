@@ -8,25 +8,25 @@ std::vector<tok> convertToPol::converterToPol(std::vector<tok> parsedString) {
 	std::vector<tok> res;
 	std::stack<tok> stack;
 	for (tok t : parsedString) {
-		if (t.kind == '8') {
+		if (t.getKind() == '8') {
 			res.push_back(t);
-		}
-		else {
-			if (t.kind == '(') {
+		}else {
+			if (t.getKind() == '(') {
 				stack.push(t);
-			}
-			else if (t.kind == ')') {
-				while (!stack.empty() && stack.top().kind != '(') {
+			}else if (t.getKind() == ')') {
+				while (!stack.empty() && stack.top().getKind() != '(') {
 					res.push_back(stack.top());
 					stack.pop();
 				}
-				if (!stack.empty()) stack.pop();
-				else throw std::runtime_error("Ошибка перевода!");
+				if (!stack.empty()) {
+					stack.pop();
+				} else throw std::runtime_error("Ошибка перевода!");
 			}
 			else if(!stack.empty()){
-				if (stack.top().priority < t.priority) stack.push(t);
-				else {
-					while (!stack.empty() && t.priority <= stack.top().priority) {
+				if (stack.top().getPriority() < t.getPriority()) {
+					stack.push(t);
+				}else {
+					while (!stack.empty() && t.getPriority() <= stack.top().getPriority()) {
 						res.push_back(stack.top());
 						stack.pop();
 					}
@@ -39,7 +39,7 @@ std::vector<tok> convertToPol::converterToPol(std::vector<tok> parsedString) {
 		}
 	}
 	while (!stack.empty()) {
-		if (stack.top().kind != '(') {
+		if (stack.top().getKind() != '(') {
 			res.push_back(stack.top());
 			stack.pop();
 		}

@@ -5,33 +5,33 @@ calc::calc() {
 double calc::calcInPol(std::vector<tok> converted) {
 	std::stack<tok> stack;
 	for (tok t : converted) {
-		if (t.kind == '8') {
+		if (t.getKind() == '8') {
 			stack.push(t);
 		}
 		else {
 			tok t1, t2;
-			if (!stack.empty() && stack.top().kind == '8') {
+			if (!stack.empty() && stack.top().getKind() == '8') {
 				t1 = stack.top();
 				stack.pop();
 			}
-			if (!stack.empty() && stack.top().kind == '8') {
+			if (!stack.empty() && stack.top().getKind() == '8') {
 				t2 = stack.top();
 				stack.pop();
 			}
-			stack.push(calcNums(t1, t2, t.kind));
+			stack.push(calcNums(t1, t2, t.getKind()));
 		}
 	}
 	if (stack.size() == 1) {
-		return stack.top().val;
+		return stack.top().getVal();
 	}
 }
 tok calc::calcNums(tok first, tok second, char operation) {
 	switch (operation) {
-	case '+':return tok(second.val + first.val);
-	case '-':return tok(second.val - first.val);
-	case '*':return tok(second.val * first.val);
-	case '/':if (first.val != 0) {
-		return tok(second.val / first.val);
+	case '+':return tok(second.getVal() + first.getVal());
+	case '-':return tok(second.getVal() - first.getVal());
+	case '*':return tok(second.getVal() * first.getVal());
+	case '/':if (first.getVal() != 0) {
+		return tok(second.getVal() / first.getVal());
 	}
 			 else {
 				 throw std::runtime_error("Деление на 0!");
