@@ -34,7 +34,7 @@ tok calc::calcNums(tok first, tok second, char operation) {
 		return tok(second.getVal() / first.getVal());
 	}
 			 else {
-				 throw std::runtime_error("Деление на 0!");
+				 throw std::runtime_error("Division by 0!");
 	}
 	}
 }

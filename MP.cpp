@@ -10,11 +10,11 @@ int main() {
 	parser p = parser();
 	while (1) {
 		system("cls");
-		std::cout << "Калькулятор, поддерживающий ()*/+-." << std::endl;
-		std::cout << "Введите выражение: ";
+		std::cout << "Calculator that supports input ()*/+-." << std::endl;
+		std::cout << "Enter an expression: ";
 		std::cin >> s;
 		try {
-			std::cout << "Результат: " << round(calc::calcInPol(convertToPol::converterToPol(p.parse(s)))*1000)/1000;
+			std::cout << "Result: " << round(calc::calcInPol(convertToPol::converterToPol(p.parse(s)))*1000)/1000;
 		}
 		catch(std::runtime_error e){
 			std::cout << e.what() << std::endl;

@@ -20,7 +20,7 @@ std::vector<tok> convertToPol::converterToPol(std::vector<tok> parsedString) {
 				}
 				if (!stack.empty()) {
 					stack.pop();
-				} else throw std::runtime_error("Ошибка перевода!");
+				} else throw std::runtime_error("Translation error!");
 			}
 			else if(!stack.empty()){
 				if (stack.top().getPriority() < t.getPriority()) {

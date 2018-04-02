@@ -23,7 +23,7 @@ std::vector<tok> parser::parse(std::string s) {
 			res.push_back(tok::tok(s[i]));
 		}
 		else {
-			throw std::runtime_error("Ошибка ввода!");
+			throw std::runtime_error("Input Error!");
 		}
 	}
 	return res;
