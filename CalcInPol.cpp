@@ -5,16 +5,16 @@ calc::calc() {
 double calc::calcInPol(std::vector<tok> converted) {
 	std::stack<tok> stack;
 	for (tok t : converted) {
-		if (t.getKind() == '8') {
+		if (t.getKind() == 'n') {
 			stack.push(t);
 		}
 		else {
 			tok t1, t2;
-			if (!stack.empty() && stack.top().getKind() == '8') {
+			if (!stack.empty() && stack.top().getKind() == 'n') {
 				t1 = stack.top();
 				stack.pop();
 			}
-			if (!stack.empty() && stack.top().getKind() == '8') {
+			if (!stack.empty() && stack.top().getKind() == 'n') {
 				t2 = stack.top();
 				stack.pop();
 			}

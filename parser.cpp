@@ -9,7 +9,8 @@ std::vector<tok> parser::parse(std::string s) {
 		if (s[i] >= '0' && s[i] <= '9') {
 			int index = 0;
 			char p[10]=" ";
-			while (s[i] >= '0' && s[i] <= '9' || s[i] == ',') {
+			while (s[i] >= '0' && s[i] <= '9' || s[i] == ','||s[i]=='.') {
+				if (s[i] == '.') s[i] = ',';
 				p[index] = s[i];
 				i++;
 				index++;

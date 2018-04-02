@@ -20,7 +20,7 @@ tok::tok(char ch) : kind(ch), val(0) {
 	}break;
 	}
 }
-tok::tok(double value) : kind('8'), priority(4),val(value) {
+tok::tok(double value) : kind('n'), priority(4),val(value) {
 
 }
 char tok::getKind() {

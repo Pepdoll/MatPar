@@ -8,7 +8,7 @@ std::vector<tok> convertToPol::converterToPol(std::vector<tok> parsedString) {
 	std::vector<tok> res;
 	std::stack<tok> stack;
 	for (tok t : parsedString) {
-		if (t.getKind() == '8') {
+		if (t.getKind() == 'n') {
 			res.push_back(t);
 		}else {
 			if (t.getKind() == '(') {
