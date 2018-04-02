@@ -14,7 +14,7 @@ int main() {
 		std::cout << "Enter an expression: ";
 		std::cin >> s;
 		try {
-			std::cout << "Result: " << round(calc::calcInPol(convertToPol::converterToPol(p.parse(s)))*1000)/1000;
+			std::cout <<"\n"<< "Result: " << round(calc::calcInPol(convertToPol::converterToPol(p.parse(s)))*1000)/1000;
 		}
 		catch(std::runtime_error e){
 			std::cout << e.what() << std::endl;

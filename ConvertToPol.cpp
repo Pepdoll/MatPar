@@ -44,6 +44,11 @@ std::vector<tok> convertToPol::converterToPol(std::vector<tok> parsedString) {
 			stack.pop();
 		}
 	}
+	std::cout << "\n"<<"In Polish notation:" << std::endl;
+	for (tok t : res) {
+		if (t.getKind() == 'n') std::cout << t.getVal() << " ";
+		else std::cout << t.getKind() << " ";
+	}
 	return res;
 }
 convertToPol::~convertToPol() {
