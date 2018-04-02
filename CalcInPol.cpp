@@ -1,4 +1,4 @@
-#include "ÑalcInPol.h"
+#include "CalcInPol.h"
 calc::calc() {
 
 }
